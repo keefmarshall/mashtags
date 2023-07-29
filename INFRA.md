@@ -1,6 +1,6 @@
 ## SERVICE DEPENDENCIES
 
-You'll need MongoDB available - for local dev I use Docker:
+You'll need MongoDB available - for local dev you can use Docker:
 
 ```
 docker run --name masto-mongo \
@@ -27,14 +27,7 @@ db.createUser(
 )
 ```
 
-We may also want to create an expiring index on the `sessions` collection manually - if so,
-make sure that `autoRemove: "disabled"` is set in the session MongoStore options.
-
-```
-db.sessions.createIndex( { "expires": 1 }, { expireAfterSeconds: 0 } )
-```
-
-We definitely want a unique index on `baseurl`  in the `servers` collection, 
+We want a unique index on `baseurl`  in the `servers` collection, 
 so we don't get duplicate app registrations:
 
 ```

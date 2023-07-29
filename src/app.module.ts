@@ -16,10 +16,10 @@ import { TagsController } from './app/tags.controller';
     TagsController
   ],
   providers: [
-    AuthService, 
+    AuthService,
     MongoService,
     ServerClientConfigService,
     TagsService
   ],
 })
-export class AppModule {}
+export class AppModule { }
