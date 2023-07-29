@@ -1,7 +1,7 @@
 
 ## Description
 
-Mashtags - allow viewing and deleting followed tags in Mastodon.
+Mashtags - Manage your followed hashtags in Mastodon.
 
 ## Infrastructure
 
