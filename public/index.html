@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Mashtags - Manage your followed hashtags in Mastodon</title>
+
+    <meta property="og:title" content="Mashtags">
+    <meta property="og:description" content="Manage your followed hashtags in Mastodon">
+    <!-- <meta property="og:image" content="{}"> -->
+
+    <link rel="stylesheet" href="style.css">
+    <script src="hosts.js" defer></script>
+</head>
+
+<body>
+    <header>
+        <h1>Mashtags</h1>
+        <p>Manage your followed hashtags in Mastodon</p>
+    </header>
+    <main>
+        <section>
+            <p>
+                You can follow hashtags in Mastodon.
+                However, right now, there's no way in the core interface to manage them.
+                This site will list all the tags you've followed, and allows you to delete any that you
+                no longer find useful.
+            </p>
+
+            <p>
+                Hopefully the core web site and mobile apps will integrate this feature at some point
+                soon and this site will become obsolete.
+            </p>
+
+            <form action="/app/auth" method="POST">
+                <label for="serverBaseUrl">
+                    <strong>To get started, tell us your Mastodon server host:</strong>
+                </label>
+                <br/>
+                https://
+                <input 
+                    type="text"
+                    placeholder="mastodon.social"
+                    name="serverBaseUrl"
+                    autocomplete="off"
+                    list="hosts"
+                />
+                <input type="submit" value="Log in to authorize" />
+            </form>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="mastodon">
+            <a href="https://mastodon.online/@keefmarshall" rel="me" target="_blank">
+                <img src="/mastodon-logo.svg" alt="@keefmarshall@mastodon.online">
+            </a>
+        </div>
+    </footer>
+
+    <datalist id="hosts">
+        <option>mastodon.social</option>
+        <option>mastodon.online</option>
+        <option>mas.to</option>
+    </datalist>
+
+</body>
+
+</html>

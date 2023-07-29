@@ -1,0 +1,54 @@
+@import "simple.min.css";
+
+
+/* Style for the list container */
+.list-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  /* Adjust the spacing between items */
+}
+
+/* Style for each list item */
+.list-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  border: 1px solid #ccc;
+  height: 30px;
+}
+
+/* Style for the trashcan button */
+.list-item .trashcan {
+  display: none;
+  /* Hide the trashcan button by default */
+}
+
+/* Show the trashcan button on hover */
+.list-item:hover .trashcan {
+  display: block;
+}
+
+.trashcan {
+  /* width: 30px;
+  height: 30px; */
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  transition: background-color 0.3s ease;
+}
+
+.weeklyUsage {
+  color: darkgrey
+}
+
+.mastodon img {
+  width: 32px;
+  height: 32px;
+  margin: 12px;
+}
