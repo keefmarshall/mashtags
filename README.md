@@ -35,6 +35,6 @@ $ npm run start:prod
 
 ## License
 
-MIT licensed.
+[MIT licensed.](LICENCE)
 
-Includes Simple CSS (c) Kev Quirk (also MIT licensed).
+Includes [Simple CSS](https://github.com/kevquirk/simple.css) (c) Kev Quirk.
