@@ -6,7 +6,7 @@
     <title>Mashtags - Manage your followed hashtags in Mastodonn</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="/style.css">
-    <script src="/tags.js"></script>
+    <script src="/tags.js" defer></script>
 </head>
 
 <body>
@@ -16,17 +16,18 @@
     </header>
     <main>
         <section>
+            <div id="error"></div>
             <p>These are all the hashtags you currently follow, with their total usage this week.</p>
             <p>Hover over a tag and click the red cross to "unfollow" it.</p>
-            <div class="list-container">
+            <div class="list-container" id="tags-container">
                 <% for (let i = 0; i < tags.length; i++) { %>
-                    <div class="list-item" id="list-item-<%= tags[i].name %>">
+                    <div class="list-item" id="tag-item-<%= tags[i].name %>">
                         <span>
                             <a href="<%= tags[i].url %>" target="_blank"><%= tags[i].name %></a>
                             &nbsp;&nbsp;
                             <span class="weeklyUsage"><%= tags[i].weeklyUsage %></span>
                         </span>
-                        <button class="trashcan" onclick="deleteTag('<%= tags[i].name %>')">❌</button>
+                        <button class="trashcan" id="tag-button-<%= tags[i].name %>">❌</button>
                     </div>
                 <% } %>
             </div>

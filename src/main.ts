@@ -13,8 +13,23 @@ async function bootstrap() {
     const configService = app.get<ConfigService>(ConfigService);
     const mongoService = app.get<MongoService>(MongoService);
     app.enableShutdownHooks();
+
+    const cspDirectives = helmet.contentSecurityPolicy.getDefaultDirectives()
+    // cspDirectives['script-src'] = ["'self'", "'unsafe-inline'"] // unsafe-inline currently needed for onClick
+    cspDirectives['frame-ancestors'] = ["'none'"] // defaults to 'same origin'
+    cspDirectives['style-src'] = ["'self'"]
+    cspDirectives["img-src"] = ["'self'"]
+    cspDirectives["font-src"] = ["'self'"]
+    if (configService.get("ENVIRONMENT") == "dev") {
+        delete cspDirectives["upgrade-insecure-requests"] // for local development, non-TLS
+    }
+
     app.use(helmet({
-        contentSecurityPolicy: false
+        contentSecurityPolicy: {
+            useDefaults: false,
+            directives: cspDirectives
+        },
+        xFrameOptions: { action: "deny" }, // default is same origin
     }))
     app.set("trust proxy", 1); // so we can use secure cookies even though nginx is terminating SSL
     app.use(
